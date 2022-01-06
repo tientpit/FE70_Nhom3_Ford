@@ -1,0 +1,42 @@
+@font-face {
+  font-family: ford;
+  src: url(../libs/fonts/ford-antenna-cufonfonts-webfont/ford-antenna-regular-xcnd-589558121012a.woff)
+    format("woff");
+}
+
+@font-face {
+  font-family: ford_medium;
+  src: url(../libs/fonts/ford-antenna-cufonfonts-webfont/ford-antenna-medium-cnd-587bd97171cbd.woff)
+    format("woff");
+}
+
+@font-face {
+  font-family: ford_bold;
+  src: url(../libs/fonts/ford-antenna-cufonfonts-webfont/ford-antenna-medium-58955836e60d2.woff)
+    format("woff");
+}
+
+@font-face {
+  font-family: "fordngbs-antenna-medium";
+  src: url("../font/antenna-cond-medium.woff");
+  font-weight: normal;
+}
+// @font-face {
+//   font-family: "ford";
+//   src: url("../font/light.woff");
+// }
+
+@font-face {
+  font-family: "fordngbs-antenna-re";
+  src: url("../font/regular.woff");
+}
+
+@font-face {
+  font-family: ford_icon;
+  src: url(../Font/gux-icons.ttf) format("woff");
+}
+
+.wrapper {
+  max-width: 1440px;
+  margin: 0px auto;
+}

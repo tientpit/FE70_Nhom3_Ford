@@ -1,0 +1,63 @@
+.product__item {
+  max-width: 230px;
+  padding-left: 25px;
+  padding-right: 25px;
+  margin-bottom: 20px;
+  display: inline-block;
+  @media (min-width: 992px) {
+    max-width: 260px;
+    flex: 0 1 25%;
+    width: 25%;
+  }
+  @media (min-width: 1200px) {
+    flex: 0 1 16.6%;
+    width: 16.6%;
+  }
+  .product__img {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  a {
+    display: inline-block;
+  }
+  .product__name {
+    padding-top: 3px;
+    padding-bottom: 7px;
+    color: $color-secondary;
+    font-family: ford_medium;
+    a {
+      text-transform: uppercase;
+      color: $color-secondary;
+      &:hover {
+        color: $color-secondary;
+        &::after {
+          content: "\f054";
+          font-family: "Font Awesome 5 Free";
+          margin-left: 6px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  .product__price {
+    font-size: 12px;
+    color: #4d4d4d;
+    font-family: "Ford Antenna Light";
+    padding-bottom: 7px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+  }
+  .product__cta {
+    color: $color-a;
+    font-size: 14px;
+    font-family: "ford_medium";
+    white-space: normal;
+    padding: 2px 0;
+    padding-top: 5px;
+    line-height: 1.25;
+    border-bottom: 1px solid rgba(2, 118, 179, 0.5);
+    display: inline-block;
+  }
+}

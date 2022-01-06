@@ -1,0 +1,619 @@
+.overlay {
+  background: #0008;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1;
+}
+
+.overlay.open {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  font-family: "ford_bold";
+  min-height: 120px;
+  width: 100%;
+  // position: fixed;
+  top: 0;
+  // transition: 0.5s ease-in-out;
+  font-size: 14px;
+  z-index: 2;
+  @media (max-width: 991px) {
+    min-height: 80px;
+  }
+  &::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+  a {
+    color: $color-a;
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+  // &.slideUp {
+  //   top: -120px;
+  // }
+  .header__wrapper {
+    max-width: 1440px;
+    width: 100%;
+    margin: auto;
+    background-color: $color-white;
+    z-index: 2001;
+    position: fixed;
+    transform: translateX(-50%);
+    left: 50%;
+    transition: 0.5s ease-in-out;
+    top: 0;
+    &.slideUp {
+      top: -120px;
+    }
+    .header__top {
+      background-color: #f3f3f3;
+      height: 40px;
+      padding-top: 0;
+      padding-bottom: 0;
+      flex-wrap: nowrap;
+      align-content: center;
+      @include Responsive(XL) {
+        padding-left: 95px;
+        padding-right: 95px;
+      }
+      .eyebrow-left {
+        ul > li {
+          display: flex;
+          align-items: center;
+          padding-right: 10px;
+          a {
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-family: "ford_bold";
+            min-height: 34px;
+            line-height: 32px;
+            color: $color-secondary;
+            text-align: center;
+            .eyebrow-icon {
+              height: 30px;
+              display: inline-block;
+              vertical-align: middle;
+              margin-left: 10px;
+              margin-right: 0;
+              background-repeat: no-repeat;
+              background-size: contain;
+              background-position: center;
+              @media (max-width: 991px) {
+                height: 60px;
+                width: 86px !important;
+              }
+            }
+            .header_top_icon1 {
+              background-image: url(../svg/header_top_icon1.svg);
+              width: 44px;
+            }
+            .header_top_icon2 {
+              background-image: url(../svg/header_top_icon2.svg);
+              width: 24px;
+            }
+            .eyebrow-item-text {
+              margin-left: 10px;
+              display: inline-block;
+              width: auto;
+              text-align: left;
+              vertical-align: middle;
+              height: 100%;
+              @media (max-width: 991px) {
+                margin-left: unset;
+              }
+            }
+            &:hover {
+              color: $color-hover;
+              & .header_top_icon1 {
+                background-image: url(../svg/header_top_icon1_hover.svg);
+              }
+              & .header_top_icon2 {
+                background-image: url(../svg/header_top_icon2_hover.svg);
+              }
+            }
+          }
+          a.eyebrow-item-not-first {
+            &::before {
+              content: "";
+              width: 1px;
+              height: 20px;
+              margin-right: 3px;
+              margin-left: 3px;
+              background-color: #d6d5d5;
+              display: inline-block;
+              line-height: normal;
+              vertical-align: middle;
+              @media (max-width: 991px) {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+      .eyebrow-right {
+        vertical-align: middle;
+        a {
+          font-size: 12px;
+          color: $color-secondary;
+          &:hover {
+            color: $color-hover;
+          }
+          svg {
+            font-size: 20px;
+            margin-right: 5px;
+          }
+        }
+        button {
+          margin-left: 15px;
+          border: none;
+          outline: none;
+          font-size: 12px;
+          &:hover {
+            color: $color-hover;
+          }
+        }
+        .flyout-container {
+          position: absolute;
+          width: auto;
+          min-width: 125px;
+          right: 0;
+          left: auto;
+          border: 1px solid #ddd;
+          border-bottom: 0;
+          position: absolute;
+          top: -100px;
+          transition: all 0.6s cubic-bezier(0.7, 0, 0.3, 1);
+          z-index: 1;
+          background-color: #fff;
+          opacity: 1;
+          &.open {
+            z-index: 1;
+            top: 120%;
+            opacity: 1;
+          }
+          ul {
+            li {
+              border-bottom: 1px solid #ddd;
+              padding: 15px;
+              font-family: ford;
+              font-size: 13px;
+              a {
+                color: $color-hover;
+                svg {
+                  float: right;
+                  font-size: 12px;
+                }
+              }
+              &:hover a {
+                color: $color-secondary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .main__menu {
+    padding-left: 0;
+    padding-right: 0;
+    @media (min-width: 992px) {
+      padding-left: 45px;
+      padding-right: 45px;
+    }
+    @media (min-width: 1440px) {
+      padding-left: 95px;
+      padding-right: 95px;
+    }
+    min-height: 80px;
+    transition: 0.5s;
+    position: relative;
+    li > a,
+    .btn__controls,
+    .nav_user li {
+      max-width: 100vw;
+    }
+    &.has_box_shadow {
+      box-shadow: 0 8px 4px -4px #0003;
+    }
+
+    .logo__brand {
+      width: 93px;
+      height: 53px;
+      margin-right: 45px;
+      display: inline-flex;
+      align-items: center;
+      @media (max-width: 1199px) {
+        margin-right: 0;
+      }
+      @media (max-width: 991px) {
+        padding: 15px;
+      }
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .btn_nav {
+      display: block;
+      width: 35px;
+      height: 2px;
+      background: $color-secondary;
+      border-radius: 2px;
+      transition: 0.2s;
+      position: relative;
+      transform: rotate(0deg);
+      top: 0;
+    }
+    .btn_nav_2 {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      opacity: 1;
+    }
+    .btn_nav_text {
+      font-size: 12px;
+      padding-top: 10px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-family: ford;
+    }
+
+    .navbar-toggler[aria-expanded="true"] {
+      .btn_nav_1 {
+        transform: rotate(-45deg);
+        top: 10px;
+      }
+      .btn_nav_2 {
+        opacity: 0;
+      }
+      .btn_nav_3 {
+        transform: rotate(45deg);
+        top: -10px;
+      }
+    }
+    .btn__controls {
+      color: $color-secondary;
+      width: 100%;
+      text-align: left;
+      min-height: 50px;
+      border: none;
+      border-bottom: 1px solid #ddd;
+      background-color: #f7f7f7;
+      font-family: "ford_medium";
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.2);
+      @media (max-width: 991px) {
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      @media (max-width: 767px) {
+        padding-left: 25px;
+        padding-right: 25px;
+      }
+      @media (max-width: 479px) {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+      &.btn_active {
+        background-color: $color-secondary;
+        color: #fff;
+        svg {
+          transform: rotate(180deg);
+        }
+      }
+      svg {
+        display: inline-block;
+        transition: 0.3s;
+      }
+    }
+    .nav_category {
+      font-family: "ford_medium";
+      li {
+        @media (min-width: 992px) {
+          padding: 0 15px;
+        }
+        @media (max-width: 1199px) {
+          position: relative;
+          padding: 0 4px;
+        }
+        @media (max-width: 991px) {
+          position: relative;
+          padding: 0;
+        }
+        & > a {
+          display: inline-block;
+          padding-bottom: 15px;
+          @media (max-width: 991px) {
+            padding-top: 15px;
+            font-family: "ford";
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            padding-right: 30px;
+            padding-left: 40px;
+            border-bottom: 1px solid #ddd;
+          }
+          @media (max-width: 767px) {
+            padding-right: 25px;
+            padding-left: 35px;
+          }
+          @media (max-width: 479px) {
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+        }
+        &.active > a {
+          border-bottom: 2px solid $color-a;
+          @media (max-width: 991px) {
+            border-bottom: none;
+            background-color: #f1f1f1;
+            color: $color-secondary;
+            box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.2);
+            margin-bottom: 6px;
+          }
+        }
+        .collapsed {
+          bottom: 0;
+          @media (max-width: 992px) {
+            position: unset;
+            transform: translateY(0);
+          }
+          .all_btns {
+            padding: 10px 0;
+            text-align: center;
+            background: #f7f7f7;
+
+            .all_btn {
+              padding: 15px 4px;
+              margin: 0 10px;
+              display: inline-block;
+              @media (min-width: 1200px) {
+                padding: 15px 8px;
+              }
+              &:hover {
+                color: $color-a;
+              }
+              &.active {
+                border-bottom: 2px solid $color-a;
+              }
+            }
+          }
+          h3.all_title {
+            font-size: 24px;
+            letter-spacing: 4px;
+            color: #000;
+            margin-top: 15px;
+            margin-bottom: 13px;
+            font-family: inherit;
+            font-weight: 500;
+            line-height: 1.1;
+            font-family: "Ford Antenna Light";
+          }
+          .product__items {
+            white-space: nowrap;
+            overflow-x: auto;
+            padding: 0;
+            @media (min-width: 992px) {
+              padding: 15px 20px;
+            }
+            @media (min-width: 1440px) {
+              padding: 15px 70px;
+            }
+          }
+
+          .product__btns {
+            background-color: #f7f7f7;
+            padding: 14px 0;
+            padding-left: 25px;
+            padding-right: 15px;
+            white-space: nowrap;
+            overflow-x: auto;
+            @include Responsive(XS) {
+              padding-left: 35px;
+            }
+            @include Responsive(MD) {
+              padding-left: 40px;
+            }
+            @include Responsive(LG) {
+              padding-left: 42px;
+            }
+            @include Responsive(XL) {
+              padding-left: 92px;
+            }
+            .product__btn {
+              margin-top: 0;
+              min-height: 30px;
+              width: auto;
+              min-width: 186px;
+              font-size: 12px;
+              font-family: "ford_medium";
+              line-height: 1.25;
+              border-radius: 20px;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              margin-right: 18px;
+              display: inline-block;
+              background-color: $color-a;
+              border: 1px solid $color-a;
+              color: #fff;
+              text-align: center;
+              &:hover {
+                color: $color-secondary;
+                background: #fff;
+              }
+              &:focus {
+                border: 1px solid $color-secondary;
+                margin-top: 0;
+                outline-offset: 2px;
+                outline: 1px solid $color-a;
+                color: $color-secondary;
+                background: #fff;
+                box-shadow: inset 0 3px 5px #0002;
+              }
+            }
+          }
+        }
+      }
+    }
+    .nav_user {
+      font-family: "ford";
+      font-size: 14px;
+
+      letter-spacing: 1px;
+      svg {
+        transition: 0.3s;
+      }
+      & > li {
+        vertical-align: middle;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        a {
+          padding: 15px;
+          border-bottom: 1px solid #ddd;
+          @media (max-width: 991px) {
+            padding-top: 15px;
+            padding-bottom: 15px;
+            padding-right: 30px;
+            padding-left: 40px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            min-height: 50px;
+            background-color: #f7f7f7;
+          }
+          @media (max-width: 768px) {
+            padding-right: 25px;
+            padding-left: 35px;
+          }
+          @media (max-width: 479px) {
+            padding-right: 15px;
+            padding-left: 15px;
+          }
+        }
+        & > a {
+          @media (min-width: 992px) {
+            border-bottom: none;
+            padding: 0 15px;
+          }
+        }
+        .icon_user {
+          background: url(../../images/icon_user.svg);
+          width: 25px;
+          height: 25px;
+          display: inline-block;
+          background-size: contain;
+          background-position: center;
+          margin-right: 10px;
+        }
+        .icon_map_marker {
+          display: inline-block;
+          margin-right: 8px;
+          font-size: 16px;
+          position: relative;
+          top: -2px;
+        }
+        & > a {
+          display: flex;
+          align-items: center;
+        }
+        &.active > a {
+          @media (max-width: 991px) {
+            background-color: $color-secondary;
+            color: #fff;
+            margin-bottom: 6px;
+            box-shadow: 0 8px 4px -4px rgba(0, 0, 0, 0.2);
+            .icon_user {
+              background: url(../images/icon_user_active.svg);
+              background-size: contain;
+              background-position: center;
+            }
+          }
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        .collapsed {
+          bottom: -13px;
+          & > li {
+            a {
+              font-family: "ford_medium";
+              font-size: 14px;
+              color: $color-a;
+              letter-spacing: 0.5px;
+              background: none;
+              &:focus,
+              &:hover {
+                color: $color-secondary;
+              }
+              svg {
+                color: $color-a !important;
+              }
+              @media (max-width: 991px) {
+                width: 100%;
+                text-align: left;
+                min-height: 50px;
+              }
+            }
+            .form__wrapper {
+              position: relative;
+              min-height: 50px;
+              padding: 15px;
+              color: $color-a;
+              font-family: "Ford Antenna Light";
+              @media (max-width: 991px) {
+                padding-right: 30px;
+                padding-left: 40px;
+              }
+              @media (max-width: 768px) {
+                padding-right: 25px;
+                padding-left: 35px;
+              }
+              @media (max-width: 479px) {
+                padding-right: 15px;
+                padding-left: 15px;
+              }
+              input {
+                outline: none;
+                height: 30px;
+                border: 1px solid #6e6e6e;
+                color: #4d4d4d;
+                padding: 0 25px 0 15px;
+                &::placeholder {
+                  color: $color-a;
+                }
+                &:focus {
+                  outline: none;
+                }
+              }
+              button {
+                top: 17px;
+                right: 15px;
+                font-size: 16px;
+                line-height: 24px;
+                border: none;
+                outline: none;
+                display: inline-block;
+                width: 25px;
+                @media (max-width: 991px) {
+                  right: 30px;
+                }
+                @media (max-width: 768px) {
+                  right: 25px;
+                }
+                @media (max-width: 479px) {
+                  right: 15px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
